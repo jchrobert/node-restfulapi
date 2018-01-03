@@ -2,9 +2,6 @@ const express = require('express');
 const db = require('./config/db');
 const app = express();
 
-// use prefix /api for all routes
-app.use('/api', require('./routes/router'));
-
 // Enable CORS from client-side
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -13,5 +10,9 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Credentials", "true");
     next();
 });
+
+// use prefix /api for all routes
+app.use('/api', require('./routes/router'));
+
 
 module.exports = app;
