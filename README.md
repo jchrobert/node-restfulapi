@@ -19,4 +19,4 @@ It should be define as properties in environment files.
 
 Start project:
 
-'npm run dev'
+`npm run dev`
