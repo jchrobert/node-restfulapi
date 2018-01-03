@@ -10,5 +10,6 @@ router.get('/', function (req, res) {
 });
 
 router.use('/quotes', require('./quotes'));
+router.use('/auth', require('./auth'));
 
 module.exports = router;

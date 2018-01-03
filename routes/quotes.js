@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 var Quote = require('../model/Quote');
-
+var verifyToken = require('../security/VerifyToken')
 
 // List all quotes
 router.get('/', function (req, res) {
@@ -47,7 +47,7 @@ router.get('/:id', function (req, res) {
 
 
 // Create new quote
-router.post('/', function (req, res) {
+router.post('/', verifyToken, function (req, res) {
     Quote.create({
             text: req.body.text,
             author: req.body.author
@@ -59,7 +59,7 @@ router.post('/', function (req, res) {
 });
 
 // Remove quote by Id
-router.delete('/:id', function (req, res) {
+router.delete('/:id', verifyToken, function (req, res) {
     Quote.findByIdAndRemove(req.params.id,
         function (err) {
             if (err) return res.status(500).send("Failed to remove this quote.");
