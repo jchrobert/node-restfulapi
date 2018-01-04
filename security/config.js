@@ -1,3 +1,3 @@
 module.exports = {
-    'signingKey': 'secretJwtPassword'
+    'signingKey': process.env.JWT_KEY
 };

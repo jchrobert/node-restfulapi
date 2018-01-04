@@ -1,5 +1,5 @@
 
 module.exports = {
-    'user': 'superuser',
-    'password': 'secret',
+    'user': process.env.ADMIN_USER,
+    'password': process.env.ADMIN_PASS,
 };
